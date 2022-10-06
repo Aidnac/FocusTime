@@ -10,8 +10,9 @@ const App = () => {
       {focusSubject ? (
         <Text>Here is where we r going to build the timer</Text>
       ) : (
-        <Focus />
+        <Focus addSubject={setFocusSubject} />
       )}
+      <Text>{focusSubject}</Text>
     </View>
   );
 };
