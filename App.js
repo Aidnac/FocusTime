@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {Focus} from './src/features/focus/Focus';
+import {Timer} from './src/features/timer/Timer';
 
 const App = () => {
-  const [focusSubject, setFocusSubject] = useState(null);
+  const [focusSubject, setFocusSubject] = useState('Gardening');
 
   return (
     <View style={styles.container}>
       {focusSubject ? (
-        <Text>Here is where we r going to build the timer</Text>
+        <Timer focusSubject={focusSubject} />
       ) : (
         <Focus addSubject={setFocusSubject} />
       )}
-      <Text>{focusSubject}</Text>
     </View>
   );
 };
