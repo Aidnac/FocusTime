@@ -17,7 +17,7 @@ const App = () => {
   };
 
   const onClear = () => {
-    //todo
+    setFocusHistory([]);
   };
 
   return (
