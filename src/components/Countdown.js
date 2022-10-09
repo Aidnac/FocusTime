@@ -6,12 +6,13 @@ import {fontSizes} from '../utils/sizes';
 const minutesToMillis = min => min * 1000 * 60;
 const formatTime = time => (time < 10 ? `0${time}` : time);
 
-export const Countdown = ({minutes = 0.6, isPaused, onProgress}) => {
+export const Countdown = ({minutes = 0.6, isPaused, onProgress, onEnd}) => {
   const interval = React.useRef(null);
   const countDown = () => {
     setMillis(time => {
       if (time === 0) {
-        //do something
+        clearInterval(interval.current);
+        onEnd();
         return time;
       }
       const timeLeft = time - 1000;
