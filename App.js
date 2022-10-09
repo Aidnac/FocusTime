@@ -14,6 +14,7 @@ const App = () => {
           onTimerEnd={() => {
             setFocusSubject(null);
           }}
+          clearSubject={() => setFocusSubject(null)}
         />
       ) : (
         <Focus addSubject={setFocusSubject} />
