@@ -22,14 +22,19 @@ export const Countdown = ({minutes = 0.6, isPaused, onProgress}) => {
   };
 
   useEffect(() => {
+    setMillis(minutesToMillis(minutes));
+  }, [minutes]);
+
+  useEffect(() => {
     if (isPaused) {
+      if (interval.current) clearInterval(interval);
       return;
     }
     interval.current = setInterval(countDown, 1000);
     return () => clearInterval(interval.current);
   }, [isPaused]);
 
-  const [millis, setMillis] = useState(minutesToMillis(minutes));
+  const [millis, setMillis] = useState(null);
 
   const minute = Math.floor(millis / 1000 / 60) % 60;
   const seconds = Math.floor(millis / 1000) % 60;
