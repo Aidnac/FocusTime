@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {Focus} from './src/features/focus/Focus';
+import {FocusHistory} from './src/features/focus/FocusHistory';
 import {Timer} from './src/features/timer/Timer';
 
 const STATUSES = {
@@ -15,7 +16,9 @@ const App = () => {
     setFocusHistory([...focusHistory, {subject, status}]);
   };
 
-  console.log(focusHistory);
+  const onClear = () => {
+    //todo
+  };
 
   return (
     <View style={styles.container}>
@@ -32,7 +35,10 @@ const App = () => {
           }}
         />
       ) : (
-        <Focus addSubject={setFocusSubject} />
+        <>
+          <Focus addSubject={setFocusSubject} />
+          <FocusHistory focusHistory={focusHistory} onClear={onClear} />
+        </>
       )}
     </View>
   );
