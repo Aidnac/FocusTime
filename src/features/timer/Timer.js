@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Platform} from 'react-native';
+import KeepAwake from 'react-native-keep-awake';
 import {ProgressBar} from 'react-native-paper';
 import {Countdown} from '../../components/Countdown';
 import {RoundedButton} from '../../components/RoundedButton';
@@ -8,6 +9,8 @@ import {spacing} from '../../utils/sizes';
 import {Timing} from './Timing';
 
 export const Timer = ({focusSubject}) => {
+  KeepAwake.activate;
+
   const [minutes, setMinutes] = useState(0.1);
   const [isStarted, setIsStarted] = useState(false);
   const [progress, setProgress] = useState(1);
